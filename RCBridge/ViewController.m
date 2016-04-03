@@ -7,41 +7,11 @@
 //
 
 #import "ViewController.h"
-@import JavaScriptCore;
+#import "RCBridge.h"
+
 @import WebKit;
 
 #define USING_WEBKIT 1
-
-@class WebView, WebFrame;
-
-@implementation NSObject (RCBridge)
-
-+ (NSString *)rcbSourceScript {
-    return [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"RCBridge" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil];
-}
-
-- (void)webView:(WebView *)webView didCreateJavaScriptContext:(JSContext *)context forFrame:(WebFrame *)frame {
-    context[@"rcb_sendMessageToNative"] = ^NSString *(NSString *cmd) {
-        NSLog(@"%@", cmd);
-        return @"0";
-    };
-    
-    [context evaluateScript:[[self class] rcbSourceScript]];
-}
-
-@end
-
-@interface RCNativeServer : NSObject <WKScriptMessageHandler>
-
-@end
-
-@implementation RCNativeServer
-
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    NSLog(@"%@", message.body);
-}
-
-@end
 
 @interface ViewController ()
 
@@ -59,20 +29,31 @@
     [super viewDidLoad];
     
 #if USING_WEBKIT
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    configuration.userContentController = [[WKUserContentController alloc] init];
-    RCNativeServer *nativeServer = [[RCNativeServer alloc] init];
-    [configuration.userContentController addScriptMessageHandler:nativeServer name:@"nativeServer"];
-    WKUserScript *script = [[WKUserScript alloc] initWithSource:[[self class] rcbSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
-    [configuration.userContentController addUserScript:script];
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:[RCBridge webViewConfiguration]];
 #else
     self.webView = [[UIWebView alloc] init];
 #endif
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://ridgecorn.com/rcb/"]]];
+    NSString *randomCode = [NSString stringWithFormat:@"%@", @(arc4random() % 1024)];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://ridgecorn.com/rcb/?_=%@", randomCode]]]];
     
     [self.view addSubview:self.webView];
+    
+    [RCBridge bridgingInWebView:_webView];
+    
+    [RCBridge messageHandler:^(RCHandler *handler) {
+        NSLog(@"received %@", handler.params);
+        
+        NSString *msg = [NSString stringWithFormat:@"%@", @(arc4random() % 1024)];
+        
+        [handler sendMessageBackToJS:@{
+                                       @"code": @0,
+                                       @"msg": msg
+                                       }];
+        
+        NSLog(@"sent %@", msg);
+    } forMethod:@"you"];
 }
 
 - (void)didReceiveMemoryWarning {

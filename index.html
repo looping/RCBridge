@@ -5,17 +5,18 @@
 </head>
 <body>	
 	<script type="text/javascript">
-		function testing() {
+		function testing(msg) {
 			if (typeof (rcb) != "undefined") {
-				setTimeout("testing()", 100)
-				rcb.send("you", {"key": "value"}, function (args) {
-					
+				rcb.send("you", {"got_msg": msg}, function (args) {
+					var receivedMsg = args["msg"]
+					console.log("received msg " + receivedMsg)
+					setTimeout("testing("+ receivedMsg +")", 1000)
 				})
 			} else {
 				location.href = "https://github.com/looping/RCBridge"
 			}
 		}
 
-		testing()
+		testing("ready")
 	</script>
 </body></html>

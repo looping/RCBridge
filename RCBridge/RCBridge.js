@@ -32,14 +32,14 @@
 
 			var cmd = {
 				method: method,
-				callbackId: callbackId,
-				args: args
+				callback: callbackId,
+				params: args
 			}
 
 			webkit.messageHandlers.nativeServer.postMessage(JSON.stringify(cmd));
 		},
 
-		handle: function (callbackId, args) {
+		receive: function (callbackId, args) {
 			if (rcb.callbacks[callbackId]) {
 				try {
 					if (rcb.callbacks[callbackId]) rcb.callbacks[callbackId](args);
@@ -51,11 +51,10 @@
 				delete rcb.callbacks[callbackId];
 			}
 		},
-	}
-
-	function _handleMessage(msg) {
-		var cmd = JSON.parse(msg)
-
-		rcb.handle(cmd["method"], cmd["args"]);
+ 
+        handleMessageFromNative: function (msg) {
+            var cmd = JSON.parse(msg)
+            rcb.receive(cmd["method"], cmd["params"]);
+        }
 	}
 })()

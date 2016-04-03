@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6E2C39471CB144A9009C741C /* RCBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E2C39461CB144A9009C741C /* RCBridge.js */; };
+		6E2C394B1CB14BE1009C741C /* RCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C394A1CB14BE1009C741C /* RCBridge.m */; };
+		6E2C394E1CB14F3D009C741C /* RCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C394D1CB14F3D009C741C /* RCHandler.m */; };
 		6EB8F9A61CB10FD5000CF025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9A51CB10FD5000CF025 /* main.m */; };
 		6EB8F9A91CB10FD5000CF025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */; };
 		6EB8F9AC1CB10FD5000CF025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9AB1CB10FD5000CF025 /* ViewController.m */; };
@@ -18,6 +20,10 @@
 
 /* Begin PBXFileReference section */
 		6E2C39461CB144A9009C741C /* RCBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RCBridge.js; sourceTree = "<group>"; };
+		6E2C39491CB14BE1009C741C /* RCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBridge.h; sourceTree = "<group>"; };
+		6E2C394A1CB14BE1009C741C /* RCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridge.m; sourceTree = "<group>"; };
+		6E2C394C1CB14F3D009C741C /* RCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandler.h; sourceTree = "<group>"; };
+		6E2C394D1CB14F3D009C741C /* RCHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHandler.m; sourceTree = "<group>"; };
 		6EB8F9A11CB10FD5000CF025 /* RCBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB8F9A51CB10FD5000CF025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2C39481CB14BAE009C741C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6E2C39461CB144A9009C741C /* RCBridge.js */,
+				6E2C39491CB14BE1009C741C /* RCBridge.h */,
+				6E2C394A1CB14BE1009C741C /* RCBridge.m */,
+				6E2C394C1CB14F3D009C741C /* RCHandler.h */,
+				6E2C394D1CB14F3D009C741C /* RCHandler.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		6EB8F9981CB10FD5000CF025 = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +78,7 @@
 		6EB8F9A31CB10FD5000CF025 /* RCBridge */ = {
 			isa = PBXGroup;
 			children = (
-				6E2C39461CB144A9009C741C /* RCBridge.js */,
+				6E2C39481CB14BAE009C741C /* src */,
 				6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */,
 				6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */,
 				6EB8F9AA1CB10FD5000CF025 /* ViewController.h */,
@@ -156,6 +174,8 @@
 				6EB8F9AC1CB10FD5000CF025 /* ViewController.m in Sources */,
 				6EB8F9A91CB10FD5000CF025 /* AppDelegate.m in Sources */,
 				6EB8F9A61CB10FD5000CF025 /* main.m in Sources */,
+				6E2C394E1CB14F3D009C741C /* RCHandler.m in Sources */,
+				6E2C394B1CB14BE1009C741C /* RCBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
