@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E2C39471CB144A9009C741C /* RCBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E2C39461CB144A9009C741C /* RCBridge.js */; };
-		6E2C394B1CB14BE1009C741C /* RCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C394A1CB14BE1009C741C /* RCBridge.m */; };
-		6E2C394E1CB14F3D009C741C /* RCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C394D1CB14F3D009C741C /* RCHandler.m */; };
+		6E6FB7E61CB19B7E004B854D /* RCBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E6FB7E21CB19B7E004B854D /* RCBridge.js */; };
+		6E6FB7E71CB19B7E004B854D /* RCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB7E31CB19B7E004B854D /* RCBridge.m */; };
+		6E6FB7E81CB19B7E004B854D /* RCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB7E51CB19B7E004B854D /* RCHandler.m */; };
 		6EB8F9A61CB10FD5000CF025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9A51CB10FD5000CF025 /* main.m */; };
 		6EB8F9A91CB10FD5000CF025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */; };
 		6EB8F9AC1CB10FD5000CF025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB8F9AB1CB10FD5000CF025 /* ViewController.m */; };
@@ -19,12 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E2C39461CB144A9009C741C /* RCBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RCBridge.js; sourceTree = "<group>"; };
-		6E2C39491CB14BE1009C741C /* RCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBridge.h; sourceTree = "<group>"; };
-		6E2C394A1CB14BE1009C741C /* RCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridge.m; sourceTree = "<group>"; };
-		6E2C394C1CB14F3D009C741C /* RCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandler.h; sourceTree = "<group>"; };
-		6E2C394D1CB14F3D009C741C /* RCHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHandler.m; sourceTree = "<group>"; };
-		6EB8F9A11CB10FD5000CF025 /* RCBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6FB7E11CB19B7E004B854D /* RCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBridge.h; sourceTree = "<group>"; };
+		6E6FB7E21CB19B7E004B854D /* RCBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RCBridge.js; sourceTree = "<group>"; };
+		6E6FB7E31CB19B7E004B854D /* RCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridge.m; sourceTree = "<group>"; };
+		6E6FB7E41CB19B7E004B854D /* RCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandler.h; sourceTree = "<group>"; };
+		6E6FB7E51CB19B7E004B854D /* RCHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHandler.m; sourceTree = "<group>"; };
+		6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCBridgeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB8F9A51CB10FD5000CF025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,22 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E2C39481CB14BAE009C741C /* src */ = {
+		6E6FB7E01CB19B7E004B854D /* RCBridge */ = {
 			isa = PBXGroup;
 			children = (
-				6E2C39461CB144A9009C741C /* RCBridge.js */,
-				6E2C39491CB14BE1009C741C /* RCBridge.h */,
-				6E2C394A1CB14BE1009C741C /* RCBridge.m */,
-				6E2C394C1CB14F3D009C741C /* RCHandler.h */,
-				6E2C394D1CB14F3D009C741C /* RCHandler.m */,
+				6E6FB7E11CB19B7E004B854D /* RCBridge.h */,
+				6E6FB7E31CB19B7E004B854D /* RCBridge.m */,
+				6E6FB7E41CB19B7E004B854D /* RCHandler.h */,
+				6E6FB7E51CB19B7E004B854D /* RCHandler.m */,
+				6E6FB7E21CB19B7E004B854D /* RCBridge.js */,
 			);
-			name = src;
+			path = RCBridge;
 			sourceTree = "<group>";
 		};
 		6EB8F9981CB10FD5000CF025 = {
 			isa = PBXGroup;
 			children = (
-				6EB8F9A31CB10FD5000CF025 /* RCBridge */,
+				6E6FB7E01CB19B7E004B854D /* RCBridge */,
+				6EB8F9A31CB10FD5000CF025 /* RCBridgeExample */,
 				6EB8F9A21CB10FD5000CF025 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,15 +71,14 @@
 		6EB8F9A21CB10FD5000CF025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EB8F9A11CB10FD5000CF025 /* RCBridge.app */,
+				6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6EB8F9A31CB10FD5000CF025 /* RCBridge */ = {
+		6EB8F9A31CB10FD5000CF025 /* RCBridgeExample */ = {
 			isa = PBXGroup;
 			children = (
-				6E2C39481CB14BAE009C741C /* src */,
 				6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */,
 				6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */,
 				6EB8F9AA1CB10FD5000CF025 /* ViewController.h */,
@@ -89,7 +89,7 @@
 				6EB8F9B51CB10FD5000CF025 /* Info.plist */,
 				6EB8F9A41CB10FD5000CF025 /* Supporting Files */,
 			);
-			path = RCBridge;
+			path = RCBridgeExample;
 			sourceTree = "<group>";
 		};
 		6EB8F9A41CB10FD5000CF025 /* Supporting Files */ = {
@@ -103,9 +103,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6EB8F9A01CB10FD5000CF025 /* RCBridge */ = {
+		6EB8F9A01CB10FD5000CF025 /* RCBridgeExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridge" */;
+			buildConfigurationList = 6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample" */;
 			buildPhases = (
 				6EB8F99D1CB10FD5000CF025 /* Sources */,
 				6EB8F99E1CB10FD5000CF025 /* Frameworks */,
@@ -115,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = RCBridge;
+			name = RCBridgeExample;
 			productName = RCBridge;
-			productReference = 6EB8F9A11CB10FD5000CF025 /* RCBridge.app */;
+			productReference = 6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridge" */;
+			buildConfigurationList = 6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -147,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EB8F9A01CB10FD5000CF025 /* RCBridge */,
+				6EB8F9A01CB10FD5000CF025 /* RCBridgeExample */,
 			);
 		};
 /* End PBXProject section */
@@ -157,7 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E2C39471CB144A9009C741C /* RCBridge.js in Resources */,
+				6E6FB7E61CB19B7E004B854D /* RCBridge.js in Resources */,
 				6EB8F9B41CB10FD5000CF025 /* LaunchScreen.storyboard in Resources */,
 				6EB8F9B11CB10FD5000CF025 /* Assets.xcassets in Resources */,
 				6EB8F9AF1CB10FD5000CF025 /* Main.storyboard in Resources */,
@@ -171,11 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6FB7E81CB19B7E004B854D /* RCHandler.m in Sources */,
 				6EB8F9AC1CB10FD5000CF025 /* ViewController.m in Sources */,
 				6EB8F9A91CB10FD5000CF025 /* AppDelegate.m in Sources */,
 				6EB8F9A61CB10FD5000CF025 /* main.m in Sources */,
-				6E2C394E1CB14F3D009C741C /* RCHandler.m in Sources */,
-				6E2C394B1CB14BE1009C741C /* RCBridge.m in Sources */,
+				6E6FB7E71CB19B7E004B854D /* RCBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +289,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RCBridge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ridgecorn.RCBridge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RCBridgeExample;
 			};
 			name = Debug;
 		};
@@ -300,17 +300,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RCBridge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ridgecorn.RCBridge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RCBridgeExample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridge" */ = {
+		6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EB8F9B61CB10FD5000CF025 /* Debug */,
@@ -319,7 +319,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridge" */ = {
+		6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EB8F9B91CB10FD5000CF025 /* Debug */,

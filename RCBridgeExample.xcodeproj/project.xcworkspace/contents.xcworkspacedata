@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:RCBridge.xcodeproj">
+      location = "self:/Users/looping/Documents/mywork/MyProjects/RCBridge/RCBridgeExample.xcodeproj">
    </FileRef>
 </Workspace>
