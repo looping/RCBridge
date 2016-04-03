@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>RCBridge Demo</title>
+</head>
+<body>	
+	<script type="text/javascript">
+		function testing() {
+			if (typeof (rcb) != "undefined") {
+				setTimeout("testing()", 100)
+				rcb.send("you", {"key": "value"}, function (args) {
+					
+				})
+			} else {
+				location.href = "https://github.com/looping/RCBridge"
+			}
+		}
+
+		testing()
+	</script>
+</body></html>
