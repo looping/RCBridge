@@ -15,10 +15,10 @@ typedef void(^MessageHandleBlock)(RCHandler *handler);
 
 @interface RCBridge : NSObject
 
-+ (void)bridgingInWebView:(id)webView;
++ (instancetype)bridgeForWebView:(id)webView;
 
 + (WKWebViewConfiguration *)webViewConfiguration;
 
-+ (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method;
+- (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method;
 
 @end

@@ -38,11 +38,11 @@
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://ridgecorn.com/rcb/?_=%@", randomCode]]]];
     
-    [self.view addSubview:self.webView];
+    [self.view addSubview:_webView];
     
-    [RCBridge bridgingInWebView:_webView];
+    RCBridge *bridge = [RCBridge bridgeForWebView:_webView];
     
-    [RCBridge messageHandler:^(RCHandler *handler) {
+    [bridge messageHandler:^(RCHandler *handler) {
         NSLog(@"received %@", handler.params);
         
         NSString *msg = [NSString stringWithFormat:@"%@", @(arc4random() % 1024)];
