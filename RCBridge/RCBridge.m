@@ -141,6 +141,14 @@ static NSDictionary * str2JSONObj(NSString *string) {
     return bridge;
 }
 
+- (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method {
+    [self.messageHandlers setObject:block forKey:method];
+}
+
+@end
+
+@implementation RCBridge (WKWebView)
+
 + (WKWebViewConfiguration *)webViewConfiguration {
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.userContentController = [[WKUserContentController alloc] init];
@@ -150,10 +158,6 @@ static NSDictionary * str2JSONObj(NSString *string) {
     [configuration.userContentController addUserScript:script];
     
     return configuration;
-}
-
-- (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method {
-    [self.messageHandlers setObject:block forKey:method];
 }
 
 @end

@@ -17,8 +17,12 @@ typedef void(^MessageHandleBlock)(RCHandler *handler);
 
 + (instancetype)bridgeForWebView:(id)webView;
 
-+ (WKWebViewConfiguration *)webViewConfiguration;
-
 - (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method;
+
+@end
+
+@interface RCBridge (WKWebView)
+
++ (WKWebViewConfiguration *)webViewConfiguration;
 
 @end
