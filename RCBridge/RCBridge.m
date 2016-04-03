@@ -11,8 +11,6 @@
 @import JavaScriptCore;
 @import WebKit;
 
-@class WebView, WebFrame;
-
 @interface RCBridge ()
 @property (nonatomic) NSMutableDictionary <NSString *, MessageHandleBlock> *messageHandlers;
 @property (nonatomic, weak) id webView;
@@ -164,7 +162,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 
 @implementation NSObject (RCBridge)
 
-- (void)webView:(WebView *)webView didCreateJavaScriptContext:(JSContext *)context forFrame:(WebFrame *)frame {
+- (void)webView:(id)webView didCreateJavaScriptContext:(JSContext *)context forFrame:(id)frame {
     UIWebView *targetWebView = [RCBridgeManager targetWebViewWithJSContext:context]; // [self valueForKeyPath:@"target.uiWebView"];
     RCBridge *bridge = [RCBridgeManager bridgeForWebView:targetWebView];
     
