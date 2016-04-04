@@ -1,6 +1,10 @@
 # RCBridge
 A bridge for sending messages between native iOS and JavaScript in UIWebView/WKWebView.
 
+## Requirements
+This library requires iOS 7+ and Xcode 7+. If your project still needs support iOS 6, I’m glad to tell you [Cordova][1] and [WebViewJavascriptBridge][2] is what you are looking for.
+
+
 ## Installation
 RCBridge supports multiple ways for integrating the library into your awesome project.
 
@@ -13,8 +17,6 @@ Add `github "looping/RCBridge" ~> 0.1` in your `Cartfile `, then run the comman
 ### Manual
 Just drag the `RCBridge` folder into your project. Super easy, wow!
 
-## Requirements
-We requires iOS 7+ and Xcode 7+.
 
 ## Usage
 ### Swift
@@ -69,3 +71,6 @@ No more imports for F2E guys this time.
 		rcb.send("you", {"got_msg": msg}, function (args) {
 		
 		})
+
+[1]:	https://github.com/apache/cordova-ios
+[2]:	https://github.com/marcuswestin/WebViewJavascriptBridge
