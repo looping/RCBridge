@@ -109,8 +109,11 @@ static NSDictionary * str2JSONObj(NSString *string) {
     
     if (bridge) {
         RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(message.body) inWebView:bridge.webView];
+        MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
         
-        [bridge.messageHandlers objectForKey:handler.method](handler);
+        if (handleBlock) {
+            handleBlock(handler);
+        }
     }
 }
 
@@ -143,6 +146,10 @@ static NSDictionary * str2JSONObj(NSString *string) {
     [self.messageHandlers setObject:block forKey:method];
 }
 
+- (void)removeMethod:(NSString *)method {
+    [self.messageHandlers removeObjectForKey:method];
+}
+
 @end
 
 @implementation RCBridge (WKWebView)
@@ -170,7 +177,11 @@ static NSDictionary * str2JSONObj(NSString *string) {
         context[@"rcb_sendMessageToNative"] = ^(NSString *cmd) {
             RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(cmd) inWebView:bridge.webView];
             
-            [bridge.messageHandlers objectForKey:handler.method](handler);
+            MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
+            
+            if (handleBlock) {
+                handleBlock(handler);
+            }
         };
         
         [context evaluateScript:[RCBridge rcbSourceScript]];
