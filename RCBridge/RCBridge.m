@@ -11,9 +11,17 @@
 @import JavaScriptCore;
 @import WebKit;
 
+
+static NSDictionary * str2JSONObj(NSString *string) {
+    return [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+}
+
+
 @interface RCBridge ()
 @property (nonatomic) NSMutableDictionary <NSString *, MessageHandleBlock> *messageHandlers;
 @property (nonatomic, weak) id webView;
+
++ (NSString *)rcbSourceScript;
 
 @end
 
@@ -27,6 +35,10 @@
 + (RCBridge *)bridgeForWebView:(id)webView;
 
 + (UIWebView *)targetWebViewWithJSContext:(JSContext *)context;
+
++ (BOOL)handleMessage:(NSString *)msg fromWebView:(id)webView;
+
++ (BOOL)injectScriptToContext:(JSContext *)context;
 
 @end
 
@@ -90,11 +102,45 @@
     return targetWebView;
 }
 
-@end
-
-static NSDictionary * str2JSONObj(NSString *string) {
-    return [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
++ (BOOL)handleMessage:(NSString *)msg fromWebView:(id)webView {
+    BOOL handled = YES;
+    
+    RCBridge *bridge = [RCBridgeManager bridgeForWebView:webView];
+    
+    if (bridge) {
+        RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(msg) inWebView:webView];
+        MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
+        
+        if (handleBlock) {
+            handleBlock(handler);
+        }
+    } else {
+        handled = NO;
+    }
+    
+    return handled;
 }
+
++ (BOOL)injectScriptToContext:(JSContext *)context {
+    BOOL injected = YES;
+    
+    UIWebView *targetWebView = [RCBridgeManager targetWebViewWithJSContext:context]; // [self valueForKeyPath:@"target.uiWebView"];
+    RCBridge *bridge = [RCBridgeManager bridgeForWebView:targetWebView];
+    
+    if (bridge) {
+        context[@"rcb_sendMessageToNative"] = ^BOOL(NSString *cmd) {
+            return [RCBridgeManager handleMessage:cmd fromWebView:bridge.webView];
+        };
+        
+        [context evaluateScript:[RCBridge rcbSourceScript]];
+    } else {
+        injected = NO;
+    }
+    
+    return injected;
+}
+
+@end
 
 @interface RCNativeServer : NSObject <WKScriptMessageHandler>
 
@@ -103,18 +149,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 @implementation RCNativeServer
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    WKWebView *webView = message.webView;
-    
-    RCBridge *bridge = [RCBridgeManager bridgeForWebView:webView];
-    
-    if (bridge) {
-        RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(message.body) inWebView:bridge.webView];
-        MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
-        
-        if (handleBlock) {
-            handleBlock(handler);
-        }
-    }
+    [RCBridgeManager handleMessage:message.body fromWebView:message.webView];
 }
 
 @end
@@ -170,22 +205,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 @implementation NSObject (RCBridge)
 
 - (void)webView:(id)webView didCreateJavaScriptContext:(JSContext *)context forFrame:(id)frame {
-    UIWebView *targetWebView = [RCBridgeManager targetWebViewWithJSContext:context]; // [self valueForKeyPath:@"target.uiWebView"];
-    RCBridge *bridge = [RCBridgeManager bridgeForWebView:targetWebView];
-    
-    if (bridge) {
-        context[@"rcb_sendMessageToNative"] = ^(NSString *cmd) {
-            RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(cmd) inWebView:bridge.webView];
-            
-            MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
-            
-            if (handleBlock) {
-                handleBlock(handler);
-            }
-        };
-        
-        [context evaluateScript:[RCBridge rcbSourceScript]];
-    }
+    [RCBridgeManager injectScriptToContext:context];
 }
 
 @end
