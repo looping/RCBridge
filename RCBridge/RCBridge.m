@@ -16,6 +16,10 @@ static NSDictionary * str2JSONObj(NSString *string) {
     return [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
 }
 
+static NSString * rcbId4Obj(id obj) {
+    return [NSString stringWithFormat:@"rcb:%p", obj];
+}
+
 
 @interface RCBridge ()
 @property (nonatomic) NSMutableDictionary <NSString *, RCBMessageHandlerBlock> *messageHandlers;
@@ -57,7 +61,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 }
 
 + (void)addBridge:(RCBridge *)bridge {
-    NSString *rcbId = [NSString stringWithFormat:@"rcb:%p", bridge.webView];
+    NSString *rcbId = rcbId4Obj(bridge.webView);
     
     if (bridge && rcbId) {
         [[RCBridgeManager sharedInstance].bridges setObject:bridge forKey:rcbId];
@@ -65,7 +69,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 }
 
 + (void)removeBridge:(RCBridge *)bridge {
-    NSString *rcbId = [NSString stringWithFormat:@"rcb:%p", bridge.webView];
+    NSString *rcbId = rcbId4Obj(bridge.webView);
     
     if (bridge && rcbId) {
         [[RCBridgeManager sharedInstance].bridges removeObjectForKey:rcbId];
@@ -73,7 +77,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 }
 
 + (RCBridge *)bridgeForWebView:(id)webView {
-    NSString *rcbId = [NSString stringWithFormat:@"rcb:%p", webView];
+    NSString *rcbId = rcbId4Obj(webView);
     
     return [[RCBridgeManager sharedInstance].bridges objectForKey:rcbId];
 }
