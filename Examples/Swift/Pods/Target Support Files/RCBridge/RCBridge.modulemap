@@ -1,0 +1,6 @@
+framework module RCBridge {
+  umbrella header "RCBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}

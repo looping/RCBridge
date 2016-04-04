@@ -1,0 +1,14 @@
+PODS:
+  - RCBridge (0.1)
+
+DEPENDENCIES:
+  - RCBridge (from `../../`)
+
+EXTERNAL SOURCES:
+  RCBridge:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  RCBridge: 9f55d3d3e0fdb22539f91269050bc90fd443b5d0
+
+COCOAPODS: 0.39.0

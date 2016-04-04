@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "RCBridge.h"
+#import <RCBridge.h>
 
 @import WebKit;
 
@@ -58,7 +58,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [bridge removeMethod:@"you"];
         
-        NSLog(@"bye 'you', 😁");
+        NSLog(@"see 'you', 😁");
     });
 }
 

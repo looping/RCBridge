@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import RCBridge
 
 class ViewController: UIViewController {
 
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC)), dispatch_get_main_queue()) {
             bridge.removeMethod("you")
             
-            print("bye 'you', 😁")
+            print("see 'you', 😁")
         }
     }
 
