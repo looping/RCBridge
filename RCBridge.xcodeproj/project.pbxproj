@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		6E6FB8471CB23AD1004B854D /* RCBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FB83C1CB23AD1004B854D /* RCBridge.framework */; };
 		6E6FB84C1CB23AD1004B854D /* RCBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB84B1CB23AD1004B854D /* RCBridgeTests.m */; };
-		6E6FB85B1CB23B43004B854D /* RCBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8561CB23B43004B854D /* RCBridge.h */; };
+		6E6FB85B1CB23B43004B854D /* RCBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8561CB23B43004B854D /* RCBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6FB85C1CB23B43004B854D /* RCBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 6E6FB8571CB23B43004B854D /* RCBridge.js */; };
 		6E6FB85D1CB23B43004B854D /* RCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB8581CB23B43004B854D /* RCBridge.m */; };
-		6E6FB85E1CB23B43004B854D /* RCHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8591CB23B43004B854D /* RCHandler.h */; };
+		6E6FB85E1CB23B43004B854D /* RCHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8591CB23B43004B854D /* RCHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6FB85F1CB23B43004B854D /* RCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB85A1CB23B43004B854D /* RCHandler.m */; };
 /* End PBXBuildFile section */
 
