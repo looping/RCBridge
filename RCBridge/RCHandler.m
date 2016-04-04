@@ -30,7 +30,7 @@
 }
 
 - (void)sendMessageBackToJS:(NSDictionary *)message {
-    if (_callback) {
+    if (_callback && message) {
         NSDictionary *cmd = @{
                               @"method": _callback,
                               @"params": message
