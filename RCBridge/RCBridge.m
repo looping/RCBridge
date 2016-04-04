@@ -190,12 +190,19 @@ static NSDictionary * str2JSONObj(NSString *string) {
 @implementation RCBridge (WKWebView)
 
 + (WKWebViewConfiguration *)webViewConfiguration {
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    configuration.userContentController = [[WKUserContentController alloc] init];
-    RCNativeServer *nativeServer = [[RCNativeServer alloc] init];
-    [configuration.userContentController addScriptMessageHandler:nativeServer name:@"nativeServer"];
-    WKUserScript *script = [[WKUserScript alloc] initWithSource:[self rcbSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
-    [configuration.userContentController addUserScript:script];
+    static WKWebViewConfiguration *configuration = nil;
+    
+    if (configuration == nil) {
+        configuration = [[WKWebViewConfiguration alloc] init];
+        
+        RCNativeServer *nativeServer = [[RCNativeServer alloc] init];
+        
+        [configuration.userContentController addScriptMessageHandler:nativeServer name:@"nativeServer"];
+        
+        WKUserScript *script = [[WKUserScript alloc] initWithSource:[self rcbSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+        
+        [configuration.userContentController addUserScript:script];
+    }
     
     return configuration;
 }
