@@ -17,7 +17,30 @@ Just drag the `RCBridge` folder into your project. Super easy, wow!
 We requires iOS 7+ and Xcode 7+.
 
 ## Usage
-- Import the header file `RCBridge.h`:
+### Swift
+- Import `RCBridge` module:
+
+		import RCBridge
+
+*Note: If you integrate `RCBridge` manually, you should import header file in your `Objective-C Bridging Header` file.*
+
+- Instantiate RCBridge with a UIWebView or WKWebView:
+
+		let bridge = RCBridge(forWebView: webView)
+
+- Add message handler:
+
+		bridge.addMethod("you") { (handler) in
+		
+		}
+
+- Send message back to JavaScript:
+
+		let msg: [NSObject : AnyObject] = ["code": 0, "msg": "\(arc4random() % 1024)"]
+		handler.sendMessageBackToJS(msg)
+
+### Objective-C
+- Import header file `RCBridge.h`:
 
 		import "RCBridge.h"
 
@@ -27,17 +50,21 @@ We requires iOS 7+ and Xcode 7+.
 
 - Add message handler:
 
-		[bridge messageHandler:^(RCHandler *handler) {
+		[bridge addMethod:@"you" withHandler:^(RCHandler *handler) {
 		
-		} forMethod:@"you"];
+		}];
 
 - Send message back to JavaScript:
 
 		[handler sendMessageBackToJS:@{
-		    @"code": @0,
+			@"code": @0,
+			@"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
 		}];
 
-- About JavaScript, it is easy to use:
+### JavaScript
+No more imports for F2E guys this time.
+
+- Send message to native iOS:
 
 		rcb.send("you", {"got_msg": msg}, function (args) {
 		
