@@ -139,7 +139,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
     return bridge;
 }
 
-- (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method {
+- (void)addMethod:(NSString *)method withHandler:(MessageHandleBlock)block {
     [self.messageHandlers setObject:block forKey:method];
 }
 

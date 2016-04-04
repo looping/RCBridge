@@ -42,18 +42,18 @@
     
     RCBridge *bridge = [RCBridge bridgeForWebView:_webView];
     
-    [bridge messageHandler:^(RCHandler *handler) {
+    [bridge addMethod:@"you" withHandler:^(RCHandler *handler) {
         NSLog(@"received %@", handler.params);
         
-        NSString *msg = [NSString stringWithFormat:@"%@", @(arc4random() % 1024)];
+        NSDictionary *msg = @{
+                              @"code": @0,
+                              @"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
+                              };
         
-        [handler sendMessageBackToJS:@{
-                                       @"code": @0,
-                                       @"msg": msg
-                                       }];
+        [handler sendMessageBackToJS:msg];
         
         NSLog(@"sent %@", msg);
-    } forMethod:@"you"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

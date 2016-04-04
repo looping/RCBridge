@@ -17,7 +17,7 @@ typedef void(^MessageHandleBlock)(RCHandler *handler);
 
 + (instancetype)bridgeForWebView:(id)webView;
 
-- (void)messageHandler:(MessageHandleBlock)block forMethod:(NSString *)method;
+- (void)addMethod:(NSString *)method withHandler:(MessageHandleBlock)block;
 
 @end
 

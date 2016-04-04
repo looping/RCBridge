@@ -34,15 +34,15 @@ class ViewController: UIViewController {
         
         let bridge = RCBridge(forWebView: webView)
         
-        bridge.messageHandler({ (handler) in
-            print("received msg \(handler.params)")
+        bridge.addMethod("you") { (handler) in
+            print("received \(handler.params)")
             
             let msg: [NSObject : AnyObject] = ["code": 0, "msg": "\(arc4random() % 1024)"]
             
             handler.sendMessageBackToJS(msg)
             
-            print("sent msg \(msg)")
-            }, forMethod: "you")
+            print("sent \(msg)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
