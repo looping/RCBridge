@@ -24,68 +24,86 @@ Just drag the `RCBridge` folder into your project. Super easy, wow!
 ### Swift
 - Import `RCBridge` module:
 
-		import RCBridge
+```swift
+	import RCBridge
+```
 
 *Note: If you integrate `RCBridge` manually, you should import header file in your `Objective-C Bridging Header` file.*
 
 - Instantiate RCBridge with a UIWebView or WKWebView;
 
-	UIWebView:
+UIWebView:
 
-		let bridge = RCBridge(forWebView: webView)
+```swift
+	let bridge = RCBridge(forWebView: webView)
+```
 
-	For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
+For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
 
-		let webView = WKWebView(frame: CGRectZero, configuration: RCBridge.webViewConfiguration())
-		let bridge = RCBridge(forWebView: webView)
+```swift
+	let webView = WKWebView(frame: CGRectZero, configuration: RCBridge.webViewConfiguration())
+	let bridge = RCBridge(forWebView: webView)
+```
 
 - Add message handler:
 
-		bridge.addMethod("you") { (handler) in
-		
-		}
+```swift
+	bridge.addMethod("you") { (handler) in
+	}
+```
 
 - Send message back to JavaScript:
 
-		let msg: [NSObject : AnyObject] = ["code": 0, "msg": "\(arc4random() % 1024)"]
-		handler.sendMessageBackToJS(msg)
-
+```swift
+	let msg: [NSObject : AnyObject] = ["code": 0, "msg": "\(arc4random() % 1024)"]
+	handler.sendMessageBackToJS(msg)
+```
 ### Objective-C
 - Import header file `RCBridge.h`:
 
-		import "RCBridge.h"
+```objc
+	import "RCBridge.h"
+```
 
 - Instantiate RCBridge with a UIWebView or WKWebView;
 
-	UIWebView:
+UIWebView:
 
-		RCBridge *bridge = [RCBridge bridgeForWebView:webView];
+```objc
+	RCBridge *bridge = [RCBridge bridgeForWebView:webView];
+```
 
-	For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
+For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
 
-		WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:[RCBridge webViewConfiguration]];
+```objc
+	WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:[RCBridge webViewConfiguration]];
+```
 
 - Add message handler:
 
-		[bridge addMethod:@"you" withHandler:^(RCHandler *handler) {
-		
-		}];
+```objc
+	[bridge addMethod:@"you" withHandler:^(RCHandler *handler) {
+	}];
+```
 
 - Send message back to JavaScript:
 
-		[handler sendMessageBackToJS:@{
-		    @"code": @0,
-		    @"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
-		}];
+```objc
+	[handler sendMessageBackToJS:@{
+		@"code": @0,
+		@"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
+	}];
+```
 
 ### JavaScript
 No more imports for F2E guys this time.
 
 - Send message to native iOS:
 
-		rcb.send("you", {"got_msg": msg}, function (args) {
-		
-		})
+```javascript
+	rcb.send("you", {"got_msg": msg}, function (args) {
+	})
+```
 
 [1]:	https://github.com/apache/cordova-ios
 [2]:	https://github.com/marcuswestin/WebViewJavascriptBridge
