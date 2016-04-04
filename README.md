@@ -28,8 +28,15 @@ Just drag the `RCBridge` folder into your project. Super easy, wow!
 
 *Note: If you integrate `RCBridge` manually, you should import header file in your `Objective-C Bridging Header` file.*
 
-- Instantiate RCBridge with a UIWebView or WKWebView:
+- Instantiate RCBridge with a UIWebView or WKWebView;
 
+	UIWebView:
+
+		let bridge = RCBridge(forWebView: webView)
+
+	For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
+
+		let webView = WKWebView(frame: CGRectZero, configuration: RCBridge.webViewConfiguration())
 		let bridge = RCBridge(forWebView: webView)
 
 - Add message handler:
@@ -48,9 +55,15 @@ Just drag the `RCBridge` folder into your project. Super easy, wow!
 
 		import "RCBridge.h"
 
-- Instantiate RCBridge with a UIWebView or WKWebView:
+- Instantiate RCBridge with a UIWebView or WKWebView;
 
-		RCBridge *bridge = [RCBridge bridgeForWebView:_webView];
+	UIWebView:
+
+		RCBridge *bridge = [RCBridge bridgeForWebView:webView];
+
+	For WKWebView, you should Instantiate WKWebView with `RCBridge.webViewConfiguration()`:
+
+		WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:[RCBridge webViewConfiguration]];
 
 - Add message handler:
 
@@ -61,8 +74,8 @@ Just drag the `RCBridge` folder into your project. Super easy, wow!
 - Send message back to JavaScript:
 
 		[handler sendMessageBackToJS:@{
-			@"code": @0,
-			@"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
+		    @"code": @0,
+		    @"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
 		}];
 
 ### JavaScript
