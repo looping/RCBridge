@@ -14,6 +14,8 @@ Add `pod 'RCBridge', '~> 0.1'` in your `Podfile`, then run the command `pod inst
 ### Carthage
 Add `github "looping/RCBridge" ~> 0.1` in your `Cartfile `, then run the command `carthage` in Terminal to build the framework and drag the built `RCBridge.framework` into your Xcode project.
 
+*Note: If you hit an error with `dyld: Library not loaded: @rpath/RCBridge.framework/RCBridge` during launch app. You should add a `New Copy Files Phase` in Build Phases, then add `RCBridge.framework` as `Frameworks` with `Code Sign On Copy` checked.*
+
 ### Manual
 Just drag the `RCBridge` folder into your project. Super easy, wow!
 
