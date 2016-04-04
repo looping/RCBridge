@@ -10,7 +10,7 @@
 				rcb.send("you", {"got_msg": msg}, function (args) {
 					var receivedMsg = args["msg"]
 					console.log("received msg " + receivedMsg)
-					setTimeout("testing("+ receivedMsg +")", 1000)
+					setTimeout("testing('"+ receivedMsg +"')", 1000)
 				})
 			} else {
 				location.href = "https://github.com/looping/RCBridge"
