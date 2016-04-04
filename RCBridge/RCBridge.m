@@ -18,7 +18,7 @@ static NSDictionary * str2JSONObj(NSString *string) {
 
 
 @interface RCBridge ()
-@property (nonatomic) NSMutableDictionary <NSString *, MessageHandleBlock> *messageHandlers;
+@property (nonatomic) NSMutableDictionary <NSString *, RCBMessageHandlerBlock> *messageHandlers;
 @property (nonatomic, weak) id webView;
 
 + (NSString *)rcbSourceScript;
@@ -109,10 +109,10 @@ static NSDictionary * str2JSONObj(NSString *string) {
     
     if (bridge) {
         RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(msg) inWebView:webView];
-        MessageHandleBlock handleBlock = [bridge.messageHandlers objectForKey:handler.method];
+        RCBMessageHandlerBlock handlerBlock = [bridge.messageHandlers objectForKey:handler.method];
         
-        if (handleBlock) {
-            handleBlock(handler);
+        if (handlerBlock) {
+            handlerBlock(handler);
         }
     } else {
         handled = NO;
@@ -177,8 +177,8 @@ static NSDictionary * str2JSONObj(NSString *string) {
     return bridge;
 }
 
-- (void)addMethod:(NSString *)method withHandler:(MessageHandleBlock)block {
-    [self.messageHandlers setObject:block forKey:method];
+- (void)addMethod:(NSString *)method withHandler:(RCBMessageHandlerBlock)handlerBlock {
+    [self.messageHandlers setObject:handlerBlock forKey:method];
 }
 
 - (void)removeMethod:(NSString *)method {
