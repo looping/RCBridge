@@ -24,7 +24,7 @@
 		6E6FB7E31CB19B7E004B854D /* RCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridge.m; sourceTree = "<group>"; };
 		6E6FB7E41CB19B7E004B854D /* RCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandler.h; sourceTree = "<group>"; };
 		6E6FB7E51CB19B7E004B854D /* RCHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHandler.m; sourceTree = "<group>"; };
-		6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCBridgeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB8F9A11CB10FD5000CF025 /* RCBridgeExample-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RCBridgeExample-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB8F9A51CB10FD5000CF025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EB8F9A81CB10FD5000CF025 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,14 +56,15 @@
 				6E6FB7E51CB19B7E004B854D /* RCHandler.m */,
 				6E6FB7E21CB19B7E004B854D /* RCBridge.js */,
 			);
-			path = RCBridge;
+			name = RCBridge;
+			path = ../../RCBridge;
 			sourceTree = "<group>";
 		};
 		6EB8F9981CB10FD5000CF025 = {
 			isa = PBXGroup;
 			children = (
 				6E6FB7E01CB19B7E004B854D /* RCBridge */,
-				6EB8F9A31CB10FD5000CF025 /* RCBridgeExample */,
+				6EB8F9A31CB10FD5000CF025 /* RCBridgeExample-Objc */,
 				6EB8F9A21CB10FD5000CF025 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,12 +72,12 @@
 		6EB8F9A21CB10FD5000CF025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */,
+				6EB8F9A11CB10FD5000CF025 /* RCBridgeExample-Objc.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6EB8F9A31CB10FD5000CF025 /* RCBridgeExample */ = {
+		6EB8F9A31CB10FD5000CF025 /* RCBridgeExample-Objc */ = {
 			isa = PBXGroup;
 			children = (
 				6EB8F9A71CB10FD5000CF025 /* AppDelegate.h */,
@@ -89,7 +90,7 @@
 				6EB8F9B51CB10FD5000CF025 /* Info.plist */,
 				6EB8F9A41CB10FD5000CF025 /* Supporting Files */,
 			);
-			path = RCBridgeExample;
+			path = "RCBridgeExample-Objc";
 			sourceTree = "<group>";
 		};
 		6EB8F9A41CB10FD5000CF025 /* Supporting Files */ = {
@@ -103,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6EB8F9A01CB10FD5000CF025 /* RCBridgeExample */ = {
+		6EB8F9A01CB10FD5000CF025 /* RCBridgeExample-Objc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample" */;
+			buildConfigurationList = 6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample-Objc" */;
 			buildPhases = (
 				6EB8F99D1CB10FD5000CF025 /* Sources */,
 				6EB8F99E1CB10FD5000CF025 /* Frameworks */,
@@ -115,9 +116,9 @@
 			);
 			dependencies = (
 			);
-			name = RCBridgeExample;
+			name = "RCBridgeExample-Objc";
 			productName = RCBridge;
-			productReference = 6EB8F9A11CB10FD5000CF025 /* RCBridgeExample.app */;
+			productReference = 6EB8F9A11CB10FD5000CF025 /* RCBridgeExample-Objc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample" */;
+			buildConfigurationList = 6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample-Objc" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -147,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EB8F9A01CB10FD5000CF025 /* RCBridgeExample */,
+				6EB8F9A01CB10FD5000CF025 /* RCBridgeExample-Objc */,
 			);
 		};
 /* End PBXProject section */
@@ -289,10 +290,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample-Objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ridgecorn.RCBridge;
-				PRODUCT_NAME = RCBridgeExample;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ridgecorn.RCBridgeExample-Objc";
+				PRODUCT_NAME = "RCBridgeExample-Objc";
 			};
 			name = Debug;
 		};
@@ -300,17 +301,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RCBridgeExample-Objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ridgecorn.RCBridge;
-				PRODUCT_NAME = RCBridgeExample;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ridgecorn.RCBridgeExample-Objc";
+				PRODUCT_NAME = "RCBridgeExample-Objc";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample" */ = {
+		6EB8F99C1CB10FD5000CF025 /* Build configuration list for PBXProject "RCBridgeExample-Objc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EB8F9B61CB10FD5000CF025 /* Debug */,
@@ -319,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample" */ = {
+		6EB8F9B81CB10FD5000CF025 /* Build configuration list for PBXNativeTarget "RCBridgeExample-Objc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EB8F9B91CB10FD5000CF025 /* Debug */,
