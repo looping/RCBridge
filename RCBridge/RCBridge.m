@@ -7,144 +7,17 @@
 //
 
 #import "RCBridge.h"
+#import "RCBridgeManager.h"
 
 @import JavaScriptCore;
 @import WebKit;
-
-
-static NSDictionary * str2JSONObj(NSString *string) {
-    return [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-}
-
-static NSString * rcbId4Obj(id obj) {
-    return [NSString stringWithFormat:@"rcb:%p", obj];
-}
-
 
 @interface RCBridge ()
 @property (nonatomic) NSMutableDictionary <NSString *, RCBMessageHandlerBlock> *messageHandlers;
 @property (nonatomic, weak) id webView;
 
-+ (NSString *)rcbSourceScript;
-
 @end
 
-@interface RCBridgeManager : NSObject
-@property (nonatomic) NSMutableDictionary *bridges;
-
-+ (void)addBridge:(RCBridge *)bridge;
-
-+ (void)removeBridge:(RCBridge *)bridge;
-
-+ (RCBridge *)bridgeForWebView:(id)webView;
-
-+ (UIWebView *)targetWebViewWithJSContext:(JSContext *)context;
-
-+ (BOOL)handleMessage:(NSString *)msg fromWebView:(id)webView;
-
-+ (BOOL)injectScriptToContext:(JSContext *)context;
-
-@end
-
-@implementation RCBridgeManager
-
-+ (instancetype)sharedInstance {
-    static RCBridgeManager *sharedManager = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedManager = [[RCBridgeManager alloc] init];
-        sharedManager.bridges = [@{} mutableCopy];
-    });
-    
-    return sharedManager;
-}
-
-+ (void)addBridge:(RCBridge *)bridge {
-    NSString *rcbId = rcbId4Obj(bridge.webView);
-    
-    if (bridge && rcbId) {
-        [[RCBridgeManager sharedInstance].bridges setObject:bridge forKey:rcbId];
-    }
-}
-
-+ (void)removeBridge:(RCBridge *)bridge {
-    NSString *rcbId = rcbId4Obj(bridge.webView);
-    
-    if (bridge && rcbId) {
-        [[RCBridgeManager sharedInstance].bridges removeObjectForKey:rcbId];
-    }
-}
-
-+ (RCBridge *)bridgeForWebView:(id)webView {
-    NSString *rcbId = rcbId4Obj(webView);
-    
-    return [[RCBridgeManager sharedInstance].bridges objectForKey:rcbId];
-}
-
-+ (UIWebView *)targetWebViewWithJSContext:(JSContext *)context {
-    NSArray *allBridges = [RCBridgeManager sharedInstance].bridges.allValues;
-    UIWebView *targetWebView = nil;
-    NSString *randomCode = [NSString stringWithFormat:@"%@", @(arc4random() % 1024)];
-    NSString *flagName = [NSString stringWithFormat:@"rcbId%@", randomCode];
-    
-    NSString *script = [NSString stringWithFormat:@"var %@ = '%@'", flagName, randomCode];
-    
-    [context evaluateScript:script];
-    
-    for (RCBridge *bridge in allBridges) {
-        if ([bridge.webView isKindOfClass:[UIWebView class]]) {
-            UIWebView *webView = bridge.webView;
-            
-            if ([[webView stringByEvaluatingJavaScriptFromString:flagName] isEqualToString:randomCode]) {
-                targetWebView = webView;
-                break;
-            }
-        }
-    }
-    
-    return targetWebView;
-}
-
-+ (BOOL)handleMessage:(NSString *)msg fromWebView:(id)webView {
-    BOOL handled = YES;
-    
-    RCBridge *bridge = [RCBridgeManager bridgeForWebView:webView];
-    
-    if (bridge) {
-        RCHandler *handler = [[RCHandler alloc] initWithMessage:str2JSONObj(msg) inWebView:webView];
-        RCBMessageHandlerBlock handlerBlock = [bridge.messageHandlers objectForKey:handler.method];
-        
-        if (handlerBlock) {
-            handlerBlock(handler);
-        }
-    } else {
-        handled = NO;
-    }
-    
-    return handled;
-}
-
-+ (BOOL)injectScriptToContext:(JSContext *)context {
-    BOOL injected = YES;
-    
-    UIWebView *targetWebView = [RCBridgeManager targetWebViewWithJSContext:context]; // [self valueForKeyPath:@"target.uiWebView"];
-    RCBridge *bridge = [RCBridgeManager bridgeForWebView:targetWebView];
-    
-    if (bridge) {
-        context[@"rcb_sendMessageToNative"] = ^BOOL(NSString *cmd) {
-            return [RCBridgeManager handleMessage:cmd fromWebView:bridge.webView];
-        };
-        
-        [context evaluateScript:[RCBridge rcbSourceScript]];
-    } else {
-        injected = NO;
-    }
-    
-    return injected;
-}
-
-@end
 
 @interface RCNativeServer : NSObject <WKScriptMessageHandler>
 
@@ -168,10 +41,6 @@ static NSString * rcbId4Obj(id obj) {
     return self;
 }
 
-+ (NSString *)rcbSourceScript {
-    return [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"RCBridge" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil];
-}
-
 + (instancetype)bridgeForWebView:(id)webView {
     RCBridge *bridge = [[RCBridge alloc] init];
     bridge.webView = webView;
@@ -189,6 +58,14 @@ static NSString * rcbId4Obj(id obj) {
     [self.messageHandlers removeObjectForKey:method];
 }
 
+- (id)bridgedWebView {
+    return _webView;
+}
+
+- (RCBMessageHandlerBlock)handlerForMethod:(NSString *)method {
+    return [_messageHandlers objectForKey:method];
+}
+
 @end
 
 @implementation RCBridge (WKWebView)
@@ -203,7 +80,7 @@ static NSString * rcbId4Obj(id obj) {
         
         [configuration.userContentController addScriptMessageHandler:nativeServer name:@"nativeServer"];
         
-        WKUserScript *script = [[WKUserScript alloc] initWithSource:[self rcbSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
+        WKUserScript *script = [[WKUserScript alloc] initWithSource:[RCBridgeManager rcbSourceScript] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
         
         [configuration.userContentController addUserScript:script];
     }
@@ -216,7 +93,9 @@ static NSString * rcbId4Obj(id obj) {
 @implementation NSObject (RCBridge)
 
 - (void)webView:(id)webView didCreateJavaScriptContext:(JSContext *)context forFrame:(id)frame {
-    [RCBridgeManager injectScriptToContext:context];
+    // Using [self valueForKeyPath:@"target.uiWebView"] can also get target webView.
+    
+    [RCBridgeManager injectRCBridgeScriptToContext:context];
 }
 
 @end

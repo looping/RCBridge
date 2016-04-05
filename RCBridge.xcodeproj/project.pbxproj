@@ -14,6 +14,8 @@
 		6E6FB85D1CB23B43004B854D /* RCBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB8581CB23B43004B854D /* RCBridge.m */; };
 		6E6FB85E1CB23B43004B854D /* RCHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8591CB23B43004B854D /* RCHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6FB85F1CB23B43004B854D /* RCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB85A1CB23B43004B854D /* RCHandler.m */; };
+		6E6FB8A21CB41A70004B854D /* RCBridgeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6FB8A01CB41A70004B854D /* RCBridgeManager.h */; };
+		6E6FB8A31CB41A70004B854D /* RCBridgeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FB8A11CB41A70004B854D /* RCBridgeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		6E6FB8581CB23B43004B854D /* RCBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridge.m; sourceTree = "<group>"; };
 		6E6FB8591CB23B43004B854D /* RCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHandler.h; sourceTree = "<group>"; };
 		6E6FB85A1CB23B43004B854D /* RCHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHandler.m; sourceTree = "<group>"; };
+		6E6FB8A01CB41A70004B854D /* RCBridgeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBridgeManager.h; sourceTree = "<group>"; };
+		6E6FB8A11CB41A70004B854D /* RCBridgeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBridgeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		6E6FB83E1CB23AD1004B854D /* RCBridge */ = {
 			isa = PBXGroup;
 			children = (
+				6E6FB8A01CB41A70004B854D /* RCBridgeManager.h */,
+				6E6FB8A11CB41A70004B854D /* RCBridgeManager.m */,
 				6E6FB8561CB23B43004B854D /* RCBridge.h */,
 				6E6FB8581CB23B43004B854D /* RCBridge.m */,
 				6E6FB8591CB23B43004B854D /* RCHandler.h */,
@@ -105,6 +111,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6FB8A21CB41A70004B854D /* RCBridgeManager.h in Headers */,
 				6E6FB85B1CB23B43004B854D /* RCBridge.h in Headers */,
 				6E6FB85E1CB23B43004B854D /* RCHandler.h in Headers */,
 			);
@@ -207,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6FB8A31CB41A70004B854D /* RCBridgeManager.m in Sources */,
 				6E6FB85D1CB23B43004B854D /* RCBridge.m in Sources */,
 				6E6FB85F1CB23B43004B854D /* RCHandler.m in Sources */,
 			);

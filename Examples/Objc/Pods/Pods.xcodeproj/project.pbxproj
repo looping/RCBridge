@@ -21,6 +21,23 @@
 			<key>targetProxy</key>
 			<string>13704B575F7392C99DC69DBA6FF1F5FD</string>
 		</dict>
+		<key>020A77ABEE10E994BB46EE692F5F3693</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>28B84F7C62C7F329AC123706D9B51688</string>
+				<string>4FFC2452165A1FF3301F77F4716DB615</string>
+				<string>310773186411104E57F0410495C43A65</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>RCBridge</string>
+			<key>path</key>
+			<string>../../..</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>045A675B8D3DA31404C8353577FFDCD2</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -35,19 +52,6 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>049ED222C82134B6847E6C552FE3CF8A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RCHandler.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>09CBE3AE2CFC5CE8F9F18565B426B294</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -61,18 +65,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0A6EEF2A8DA5A76D830F28D8C2CE2838</key>
+		<key>0E5748427D7B6EE5DBA4F52991303037</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>CC0708D3A55E2AEAFD33C4CF6A267450</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RCBridge.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>122DA2E5084A4393C29BE363C764795C</key>
 		<dict>
@@ -100,19 +105,6 @@
 			<key>remoteInfo</key>
 			<string>RCBridge</string>
 		</dict>
-		<key>15877DE5431865CFB39A86FE04FDCF0D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RCBridge.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>15EE50DA3E98CBFC883AB85112B1867C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -125,6 +117,13 @@
 			<string>Pods-RCBridgeExample-Objc-acknowledgements.markdown</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>16147048B039EC4770B32990566D4C28</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DA3E3B5D5F777CB30E0C0F16E94BAEFE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>1684C747A98D9AB7DA461B7F327A9004</key>
 		<dict>
@@ -167,19 +166,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2236DFA3F77819B016093094BC63822D</key>
+		<key>28B84F7C62C7F329AC123706D9B51688</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
+			<key>children</key>
 			<array>
-				<string>EE24DD93CC63DDE8F446D1B917D05566</string>
-				<string>A3E02F8540DF05A1DE66BA1F46B063B4</string>
+				<string>F6F18E4F16BF97C2F1A67FD3F45970D0</string>
+				<string>91975A0D37F4F109B187156A1063F819</string>
+				<string>D93CC114077D8DD2182D8C50ED477853</string>
+				<string>AE5348424D5AC4465A027EF09ACEC33D</string>
+				<string>CC0708D3A55E2AEAFD33C4CF6A267450</string>
+				<string>3F4452F6436652D6067B7D260485FC2D</string>
 			</array>
 			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>RCBridge</string>
+			<key>path</key>
+			<string>RCBridge</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>2A9F9D74659AADF33204EE46767050FB</key>
 		<dict>
@@ -283,37 +288,22 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>2E05CA518C1A8328C51E43E080F72DC0</key>
+		<key>310773186411104E57F0410495C43A65</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>3CC58F87440559CD09A6811D932E7569</string>
-				<string>B6914A9330D042D4660E92C4D68E7E28</string>
-				<string>48EB23FEFA744F0F1BD1C93705A866A7</string>
+				<string>4C02492F2ED7B90687B74C5DE56E20A0</string>
+				<string>DA3E3B5D5F777CB30E0C0F16E94BAEFE</string>
+				<string>F75F14760F283B5858B3FADAB5F81131</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>RCBridge</string>
+			<string>Support Files</string>
 			<key>path</key>
-			<string>../../..</string>
+			<string>Examples/ObjC/Pods/Target Support Files/RCBridge</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2E91E92107EDF93C4D65E764C8745598</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>64579C3F576A5576F06248F28CF5280D</string>
-				<string>D85F1AB79E5D018238D777536E1D9E48</string>
-				<string>853D6B346EFB86381B9EA2E28CC22AFE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>318866406C663447851D4356B7B7A01C</key>
 		<dict>
@@ -325,7 +315,7 @@
 		<key>371A7CE93857DC95A32ACEC57F5A4A70</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>DAF0A0A546AC97F2D90FACB4D3B98B0A</string>
+			<string>4C02492F2ED7B90687B74C5DE56E20A0</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -382,14 +372,24 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>3CC58F87440559CD09A6811D932E7569</key>
+		<key>3F4452F6436652D6067B7D260485FC2D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RCHandler.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F98C7731E98CFECFDFA262286C23BBB</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>0A6EEF2A8DA5A76D830F28D8C2CE2838</string>
-				<string>15877DE5431865CFB39A86FE04FDCF0D</string>
-				<string>049ED222C82134B6847E6C552FE3CF8A</string>
-				<string>C13BA47D43180DFF1CAF1F5430CB4CA1</string>
+				<string>FC1C461B2F767DB8EA722DAF348AF376</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -489,23 +489,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>48EB23FEFA744F0F1BD1C93705A866A7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DAF0A0A546AC97F2D90FACB4D3B98B0A</string>
-				<string>6C828756E6DCFC2C20A3BA86F0E7169F</string>
-				<string>8E288792B15A28C5FB4A4272CBF7BC1C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>Examples/ObjC/Pods/Target Support Files/RCBridge</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>4AD5AC4134DF73D6AEB66DFF3CD1B44A</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -519,10 +502,36 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>4C02492F2ED7B90687B74C5DE56E20A0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>RCBridge.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4FFC2452165A1FF3301F77F4716DB615</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F98C7731E98CFECFDFA262286C23BBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>550AAB4646645ABD6792CBE213788D8D</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>DAF0A0A546AC97F2D90FACB4D3B98B0A</string>
+			<string>4C02492F2ED7B90687B74C5DE56E20A0</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -621,25 +630,20 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>64579C3F576A5576F06248F28CF5280D</key>
+		<key>5FB9093FC58BB021B1B3EA580FD27A4B</key>
 		<dict>
-			<key>fileRef</key>
-			<string>6C828756E6DCFC2C20A3BA86F0E7169F</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>9E01D5AA4DF60F19E612D16A1C4B3861</string>
+				<string>AFE4DECB66D3A893837E54B123E06587</string>
+				<string>0E5748427D7B6EE5DBA4F52991303037</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C828756E6DCFC2C20A3BA86F0E7169F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RCBridge-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
@@ -692,7 +696,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>2E05CA518C1A8328C51E43E080F72DC0</string>
+				<string>020A77ABEE10E994BB46EE692F5F3693</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -714,10 +718,10 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>853D6B346EFB86381B9EA2E28CC22AFE</key>
+		<key>84BDD7DAFA100DCA79ABED4BF080DBD0</key>
 		<dict>
 			<key>fileRef</key>
-			<string>C13BA47D43180DFF1CAF1F5430CB4CA1</string>
+			<string>3F4452F6436652D6067B7D260485FC2D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -736,16 +740,16 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>8E288792B15A28C5FB4A4272CBF7BC1C</key>
+		<key>91975A0D37F4F109B187156A1063F819</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>RCBridge-prefix.pch</string>
+			<string>RCBridge.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -755,9 +759,9 @@
 			<string>172DA3AE72B87EDB94BBDFC5E76B1B80</string>
 			<key>buildPhases</key>
 			<array>
-				<string>2E91E92107EDF93C4D65E764C8745598</string>
+				<string>C6284DCC261B75658FB11988AB1B3DA8</string>
 				<string>A9EFD3955E67D60347D82BC19A1D5912</string>
-				<string>2236DFA3F77819B016093094BC63822D</string>
+				<string>5FB9093FC58BB021B1B3EA580FD27A4B</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -787,10 +791,10 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>A3E02F8540DF05A1DE66BA1F46B063B4</key>
+		<key>9E01D5AA4DF60F19E612D16A1C4B3861</key>
 		<dict>
 			<key>fileRef</key>
-			<string>049ED222C82134B6847E6C552FE3CF8A</string>
+			<string>F6F18E4F16BF97C2F1A67FD3F45970D0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -801,20 +805,12 @@
 				</array>
 			</dict>
 		</dict>
-		<key>A506E2A149DFA65CA9E212A18A734419</key>
+		<key>A82DBC6FD8612A5E722CEFE79FB16BC6</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>BD288F12504AEEE9506A38819AF06504</string>
-			</array>
+			<key>fileRef</key>
+			<string>AE5348424D5AC4465A027EF09ACEC33D</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RCBridge</string>
-			<key>path</key>
-			<string>RCBridge</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>A9EFD3955E67D60347D82BC19A1D5912</key>
 		<dict>
@@ -830,6 +826,19 @@
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>AE5348424D5AC4465A027EF09ACEC33D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RCBridgeManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>AEA7D1086D967EB5DBC4FACC815EDF06</key>
 		<dict>
@@ -857,6 +866,20 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
+		<key>AFE4DECB66D3A893837E54B123E06587</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D93CC114077D8DD2182D8C50ED477853</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>B5EE99A1D1DD50953B358E51AB35A10A</key>
 		<dict>
 			<key>isa</key>
@@ -869,19 +892,6 @@
 			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>B6914A9330D042D4660E92C4D68E7E28</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A506E2A149DFA65CA9E212A18A734419</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
 		<dict>
@@ -900,29 +910,28 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
-		<key>BD288F12504AEEE9506A38819AF06504</key>
+		<key>BA6D974EAC0FAE21F4B81BCEE3849B98</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>91975A0D37F4F109B187156A1063F819</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RCBridge.js</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>C13BA47D43180DFF1CAF1F5430CB4CA1</key>
+		<key>C6284DCC261B75658FB11988AB1B3DA8</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>16147048B039EC4770B32990566D4C28</string>
+				<string>BA6D974EAC0FAE21F4B81BCEE3849B98</string>
+				<string>A82DBC6FD8612A5E722CEFE79FB16BC6</string>
+				<string>84BDD7DAFA100DCA79ABED4BF080DBD0</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RCHandler.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>C69073A69AC01A1275EF114794612B35</key>
 		<dict>
@@ -934,6 +943,19 @@
 			<string>text.xcconfig</string>
 			<key>path</key>
 			<string>Pods-RCBridgeExample-Objc.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CC0708D3A55E2AEAFD33C4CF6A267450</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RCHandler.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -996,23 +1018,29 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>D85F1AB79E5D018238D777536E1D9E48</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15877DE5431865CFB39A86FE04FDCF0D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAF0A0A546AC97F2D90FACB4D3B98B0A</key>
+		<key>D93CC114077D8DD2182D8C50ED477853</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>RCBridge.xcconfig</string>
+			<string>RCBridgeManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DA3E3B5D5F777CB30E0C0F16E94BAEFE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RCBridge-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1042,19 +1070,42 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>EE24DD93CC63DDE8F446D1B917D05566</key>
+		<key>F6F18E4F16BF97C2F1A67FD3F45970D0</key>
 		<dict>
-			<key>fileRef</key>
-			<string>0A6EEF2A8DA5A76D830F28D8C2CE2838</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RCBridge.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F75F14760F283B5858B3FADAB5F81131</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RCBridge-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FC1C461B2F767DB8EA722DAF348AF376</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>RCBridge.js</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>

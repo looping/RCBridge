@@ -21,6 +21,10 @@ typedef void(^RCBMessageHandlerBlock)(RCHandler *handler);
 
 - (void)removeMethod:(NSString *)method;
 
+- (id)bridgedWebView;
+
+- (RCBMessageHandlerBlock)handlerForMethod:(NSString *)method;
+
 @end
 
 @interface RCBridge (WKWebView)
