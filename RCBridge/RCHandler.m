@@ -30,10 +30,10 @@
 }
 
 - (void)sendMessageBackToJS:(NSDictionary *)message {
-    if (_callback && message) {
+    if (_callback) {
         NSDictionary *cmd = @{
                               @"method": _callback,
-                              @"params": message
+                              @"params": message ?: @{}
                               };
         
         NSString *script = [NSString stringWithFormat: @"rcb.handleMessageFromNative('%@')", [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:cmd options:kNilOptions error:nil] encoding:NSUTF8StringEncoding]];
