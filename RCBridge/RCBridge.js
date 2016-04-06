@@ -39,22 +39,23 @@
 			webkit.messageHandlers.nativeServer.postMessage(JSON.stringify(cmd));
 		},
 
-		receive: function (callbackId, args) {
-			if (rcb.callbacks[callbackId]) {
+		receive: function (method, args, callback) {
+			if (rcb.callbacks[method]) {
 				try {
-					if (rcb.callbacks[callbackId]) rcb.callbacks[callbackId](args);
+                    rcb.callbacks[method](args, callback);
 				}
 				catch (e) {
-					console.log("Callback Error: " + callbackId + " = " + e);
+					console.log("Callback Error: " + method + " = " + e);
 				}
 
-				delete rcb.callbacks[callbackId];
+				delete rcb.callbacks[method];
 			}
 		},
  
         handleMessageFromNative: function (msg) {
             var cmd = JSON.parse(msg)
-            rcb.receive(cmd["method"], cmd["params"]);
+
+            rcb.receive(cmd["method"], cmd["params"], cmd["callback"]);
         }
 	}
 })()

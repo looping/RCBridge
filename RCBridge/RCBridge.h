@@ -6,12 +6,9 @@
 //  Copyright © 2016 RidgeCorn. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "RCHandler.h"
 
 @class WKWebViewConfiguration;
-
-typedef void(^RCBMessageHandlerBlock)(RCHandler *handler);
 
 @interface RCBridge : NSObject
 

@@ -7,7 +7,10 @@
 //
 
 #import "RCHandler.h"
-#import <UIKit/UIKit.h>
+#import "RCBridge.h"
+#import "RCBridgeManager.h"
+
+@import UIKit;
 @import WebKit;
 
 @interface RCHandler ()
@@ -30,11 +33,37 @@
 }
 
 - (void)sendMessageBackToJS:(NSDictionary *)message {
+    [self sendMessageBackToJS:message withHandler:nil];
+}
+
+- (void)sendMessageBackToJS:(NSDictionary *)message withHandler:(RCBMessageHandlerBlock)handlerBlock {
     if (_callback) {
-        NSDictionary *cmd = @{
+        NSDictionary *callbackInfo = nil;
+        
+        if (handlerBlock) {
+            NSString *method = [_callback stringByAppendingFormat:@"_%@", [@(CFAbsoluteTimeGetCurrent()) stringValue]];
+            
+            callbackInfo = @{
+                             @"callback": method
+                             };
+            
+            __weak RCBridge *bridge = [RCBridgeManager bridgeForWebView:_webView];
+            
+            [bridge addMethod:method withHandler:^(RCHandler *handler) {
+                handlerBlock(handler);
+                
+                [bridge removeMethod:method];
+            }];
+        }
+        
+        NSMutableDictionary *cmd = [@{
                               @"method": _callback,
                               @"params": message ?: @{}
-                              };
+                              } mutableCopy];
+        
+        if (callbackInfo) {
+            [cmd addEntriesFromDictionary:callbackInfo];
+        }
         
         NSString *script = [NSString stringWithFormat: @"rcb.handleMessageFromNative('%@')", [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:cmd options:kNilOptions error:nil] encoding:NSUTF8StringEncoding]];
         

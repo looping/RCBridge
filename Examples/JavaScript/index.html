@@ -7,10 +7,14 @@
 	<script type="text/javascript">
 		function testing(msg) {
 			if (typeof (rcb) != "undefined") {
-				rcb.send("you", {"got_msg": msg}, function (args) {
+				rcb.send("you", {"msg": msg}, function (args, callback) {
 					var receivedMsg = args["msg"]
 					console.log("received msg " + receivedMsg)
-					setTimeout("testing('"+ receivedMsg +"')", 1000)
+					
+					console.log("callback " + callback)
+
+					rcb.send(callback, {"got_msg": receivedMsg}, null)
+					setTimeout("testing('out')", 1000)
 				})
 			} else {
 				location.href = "https://github.com/looping/RCBridge"
