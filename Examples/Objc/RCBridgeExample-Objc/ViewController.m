@@ -49,9 +49,7 @@
                               @"code": @0,
                               @"msg": [NSString stringWithFormat:@"%@", @(arc4random() % 1024)]
                               };
-        
-        [handler sendMessageBackToJS:msg];
-        
+                
         [handler sendMessageBackToJS:msg withHandler:^(RCHandler *handler) {
             NSLog(@"received from callback %@", handler.params);
         }];
