@@ -42,10 +42,15 @@
 }
 
 + (instancetype)bridgeForWebView:(id)webView {
-    RCBridge *bridge = [[RCBridge alloc] init];
-    bridge.webView = webView;
+    RCBridge *bridge = [RCBridgeManager bridgeForWebView:webView];
     
-    [RCBridgeManager addBridge:bridge];
+    if (bridge == nil) {
+        bridge = [[RCBridge alloc] init];
+        
+        bridge.webView = webView;
+        
+        [RCBridgeManager addBridge:bridge];
+    }
     
     return bridge;
 }
